@@ -10,7 +10,7 @@ module.exports = function(db,app,ObjectID){
         //console.log(req);
         var objectid = new ObjectID(product.objid);
         const collection = db.collection('products');
-        collection.updateOne({_id:objectid},{$set:{name:product.name,units:product.units}},()=>{
+        collection.updateOne({_id:objectid},{$set:{name:product.name,description:product.description,price:product.price,units:product.units}},()=>{
           //Return a response to the client to let them know the delete was successful
            res.send({'ok':product.objid});
        })

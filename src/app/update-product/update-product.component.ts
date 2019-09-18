@@ -31,7 +31,7 @@ export class UpdateProductComponent implements OnInit {
       this.productid = data[0].id;
       this.productname = data[0].name;
       this.description = data[0].description;
-      this.productprice = data[0].pricec;
+      this.productprice = data[0].price;
       this.productunits = data[0].units;
       this.productobjid = data[0]._id;
     })
