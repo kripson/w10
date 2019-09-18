@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SocketService } from './socket.service';
+import { ProductdataService } from './productdata.service';
 
-describe('SocketService', () => {
+describe('ProductdataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SocketService = TestBed.get(SocketService);
+    const service: ProductdataService = TestBed.get(ProductdataService);
     expect(service).toBeTruthy();
   });
 });
