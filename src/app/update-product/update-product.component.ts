@@ -13,6 +13,8 @@ import {ActivatedRoute,Router} from '@angular/router';
 export class UpdateProductComponent implements OnInit {
   productidparam;
   productname:string = "";
+  description:string = "";
+  productprice:number=0;
   productunits:number=0;
   productid:number=0;
   productobjid:string="";
@@ -28,7 +30,8 @@ export class UpdateProductComponent implements OnInit {
     this.proddata.getitem(this.productidparam).subscribe((data)=>{
       this.productid = data[0].id;
       this.productname = data[0].name;
-    
+      this.description = data[0].description;
+      this.productprice = data[0].pricec;
       this.productunits = data[0].units;
       this.productobjid = data[0]._id;
     })
@@ -36,7 +39,7 @@ export class UpdateProductComponent implements OnInit {
   }
  
   update(){
-    var product:Products = new Products(this.productobjid,this.productid,this.productname,this.productunits);
+    var product:Products = new Products(this.productobjid,this.productid,this.productname,this.description,this.productprice,this.productunits);
     this.proddata.updateitem(product).subscribe((data)=>{
      this.router.navigate(['/list',data.ok]);
 

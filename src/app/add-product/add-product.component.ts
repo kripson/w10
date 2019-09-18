@@ -41,6 +41,8 @@ import {trigger,state,style,animate,transition } from '@angular/animations';
 })
 export class AddProductComponent implements OnInit {
   productname:string = "";
+  description:string = "";
+  productprice:number=null;
   productunits:number=null;
   productid:number=null;
   productobjid:string = "";
@@ -66,7 +68,7 @@ export class AddProductComponent implements OnInit {
     if(this.productid ==null){
       this.iderrorshow = !this.iderrorshow;
     }else{
-    this.newprod = new Products("",this.productid,this.productname,this.productunits);
+    this.newprod = new Products("",this.productid,this.productname,this.description,this.productprice,this.productunits);
     this.proddata.add(this.newprod).subscribe((data)=>{
       console.log(data);
       this.noticeshow = true;
@@ -78,6 +80,8 @@ export class AddProductComponent implements OnInit {
       
       this.productid = null;
       this.productname="";
+      this.description="";
+      this.productprice=null;
       this.productunits = null;
      
     });
